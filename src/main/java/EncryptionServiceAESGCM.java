@@ -11,10 +11,8 @@ import java.security.SecureRandom;
 import java.util.Base64;
 
 public class EncryptionServiceAESGCM {
-
     private SecretKey secretKey;
     private Cipher cipher;
-
 
     public EncryptionServiceAESGCM(String key) throws NoSuchPaddingException, NoSuchAlgorithmException {
         byte[] keyBytes = key.getBytes(StandardCharsets.UTF_8);
@@ -44,5 +42,4 @@ public class EncryptionServiceAESGCM {
         byte[] decryptedData = cipher.doFinal(cypherText);
         return new String(decryptedData);
     }
-
 }

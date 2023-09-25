@@ -1,11 +1,9 @@
 import javax.crypto.Cipher;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 
@@ -14,7 +12,7 @@ public class EncryptionServiceAES {
     private SecretKey secretKey;
     private Cipher cipher;
 
-    public EncryptionServiceAES(String key) throws NoSuchPaddingException, NoSuchAlgorithmException {
+    public EncryptionServiceAES(String key) throws GeneralSecurityException {
         byte[] keyBytes = key.getBytes(StandardCharsets.UTF_8);
         secretKey = new SecretKeySpec(keyBytes, "AES");
         cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
